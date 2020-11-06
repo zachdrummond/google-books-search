@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const AuthorSchema = new Schema(
   {
@@ -21,7 +22,7 @@ const AuthorSchema = new Schema(
   { toJSON: { virtuals: true } }
 );
 
-AuthorSchmea.virtual("fullName").get(function () {
+AuthorSchema.virtual("fullName").get(function () {
   return `${this.firstName} ${this.lastName}`;
 });
 

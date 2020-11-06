@@ -1,11 +1,11 @@
-import React from 'react';
+import Jumbotron from "../Jumbotron/Jumbotron";
 
 const Saved = () => {
-    return (
-        <>
-            <h1>Saved Page</h1>
-        </>
-    );
+  return (
+    <>
+      <Jumbotron />
+    </>
+  );
 };
 
 export default Saved;

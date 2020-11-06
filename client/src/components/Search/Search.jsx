@@ -1,11 +1,11 @@
-import React from 'react';
+import Jumbotron from "../Jumbotron/Jumbotron";
 
 const Search = () => {
-    return (
-        <>
-           <h1>Search Page</h1> 
-        </>
-    );
+  return (
+    <>
+      <Jumbotron />
+    </>
+  );
 };
 
 export default Search;

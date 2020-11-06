@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
+const db = require("../models");
 
 // Route - Returns all saved books
 router.get("/api/books", function(request, response) {
@@ -17,7 +18,7 @@ router.delete("/api/books/:id", function(request, response) {
 
 });
 
-// Route - Saves a new book to the database
+// Route - Catch All - Loads the HTML Page
 router.get("*", function(request, response) {
     response.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
