@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Saved from "./components/Saved/Saved";
 import Search from "./components/Search/Search";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route exact path="/saved" component={Saved} />
           <Route path="/" component={Search} />
         </Switch>
+      <Footer />
     </Router>
   );
 }
