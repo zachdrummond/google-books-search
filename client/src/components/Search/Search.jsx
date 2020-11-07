@@ -12,6 +12,8 @@ const Search = () => {
     }
   }
 
+  const [search, setSearch] = useState("");
+
   function getBook(event) {
     event.preventDefault();
     
@@ -22,12 +24,16 @@ const Search = () => {
       .catch((error) => console.log(error));
   };
 
+  const handleInputChange = (event) =>{
+    setSearch(event.target.value);
+  }
+
   return (
     <>
       <Jumbotron />
       <div className="container" style={style.container}>
         <Card header="Book Search">
-          <Form getBook={getBook}/>
+          <Form search={search} handleInputChange={handleInputChange} getBook={getBook}/>
         </Card>
         <Card header="Results">
           <Book />
