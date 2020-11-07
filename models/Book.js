@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const BookSchema = new Schema({
     authors: {
-        type: Schema.Types.ObjectId,
-        ref: "Author"
+        type: Array,
+        required: true
     }, 
     description: {
         type: String,
