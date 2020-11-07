@@ -8,36 +8,48 @@ import Book from "../Book.jsx/Book";
 const Search = () => {
   const style = {
     container: {
-      marginBottom: "100px"
-    }
-  }
+      marginBottom: "100px",
+    },
+  };
 
   const [search, setSearch] = useState("");
+  const [books, setBooks] = useState([]);
 
   function getBook(event) {
     event.preventDefault();
-    
+
+    if (!search) {
+      return;
+    }
     API(search)
       .then((response) => {
-        console.log(response);
+        setBooks(response.data.items);
       })
       .catch((error) => console.log(error));
-  };
-
-  const handleInputChange = (event) =>{
-    setSearch(event.target.value);
   }
+
+  const handleInputChange = (event) => {
+    setSearch(event.target.value);
+  };
 
   return (
     <>
       <Jumbotron />
       <div className="container" style={style.container}>
         <Card header="Book Search">
-          <Form search={search} handleInputChange={handleInputChange} getBook={getBook}/>
+          <Form
+            search={search}
+            handleInputChange={handleInputChange}
+            getBook={getBook}
+          />
         </Card>
-        <Card header="Results">
-          <Book />
-        </Card>
+        {books.length ? (
+          <Card header="Results">
+            {books.map((book) => (
+              <Book key={book.volumeInfo.id} volumeInfo={book.volumeInfo} />
+            ))}
+          </Card>
+        ) : null}
       </div>
     </>
   );

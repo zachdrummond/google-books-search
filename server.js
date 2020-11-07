@@ -9,7 +9,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(require("./controllers/bookController.js"));
-app.use(require("./controllers/authorController.js"));
 app.use(express.static("client/build"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hogwarts-library", {

@@ -1,5 +1,3 @@
-import API from "../utils/API";
-
 const Form = (props) => {
 
   return (
