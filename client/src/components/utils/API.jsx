@@ -7,7 +7,6 @@ const API = {
     );
   },
   SaveBook: function (book) {
-    console.log(book);
     return axios.post("/api/books", book);
   },
   GetSavedBooks: function () {

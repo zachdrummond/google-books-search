@@ -37,7 +37,6 @@ const Search = () => {
     const userBook = books.filter(book => {
       return book.id === event.target.value;
     });
-    const {title, infoLink, authors, imageLinks, description} = userBook[0].volumeInfo;
     API.SaveBook(userBook[0].volumeInfo)
       .then((response) => {
         console.log(response);
