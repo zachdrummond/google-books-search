@@ -34,7 +34,7 @@ const Search = () => {
 
   const handleSaveButton = (event) => {
     event.preventDefault();
-    const userBook = books.filter(book => {
+    const userBook = books.filter((book) => {
       return book.id === event.target.value;
     });
     API.SaveBook(userBook[0].volumeInfo)
@@ -57,14 +57,27 @@ const Search = () => {
         </Card>
         {books.length ? (
           <Card header="Results">
-            {books.map((book) => (
-              <Book
-                key={book.id}
-                id={book.id}
-                volumeInfo={book.volumeInfo}
-                handleSaveButton={handleSaveButton}
-              />
-            ))}
+            {books.map((book) => {
+              const {
+                title,
+                infoLink,
+                authors,
+                imageLinks,
+                description,
+              } = book.volumeInfo;
+              return (
+                <Book
+                  key={book.id}
+                  id={book.id}
+                  title={title}
+                  link={infoLink}
+                  authors={authors}
+                  image={imageLinks.thumbnail}
+                  description={description}
+                  handleButton={handleSaveButton}
+                />
+              );
+            })}
           </Card>
         ) : null}
       </div>

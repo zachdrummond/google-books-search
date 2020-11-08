@@ -1,16 +1,19 @@
 const express = require("express");
-const path = require("path");
 const router = express.Router();
 const db = require("../models");
 
 // Route - Returns all saved books
 router.get("/api/books", function (request, response) {
   db.Book.find({})
-    .then((response) => {
-      console.log(response);
+    .then((savedBooks) => {
+      response.json(savedBooks);
     })
     .catch((error) => {
-      console.log(error);
+      response.status(500).json({
+        error: true,
+        data: null,
+        message: "Failed to get all saved books.",
+      });
     });
 });
 
@@ -41,6 +44,21 @@ router.post("/api/books", function (request, response) {
 });
 
 // Route - Deletes a book from the database
-router.delete("/api/books/:id", function (request, response) {});
+router.delete("/api/books/:id", function (request, response) {
+  db.Book.findByIdAndDelete(request.params.id).then(() => {
+    response.status(200).json({
+      error: false,
+      data: null,
+      message: "Deleted the book!",
+    });
+  })
+  .catch((error) => {
+    response.status(500).json({
+      error: true,
+      data: null,
+      message: "Failed to delete the book.",
+    });
+  });
+});
 
 module.exports = router;
