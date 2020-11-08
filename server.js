@@ -9,14 +9,20 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(require("./controllers/bookController.js"));
-app.use(express.static("client/build"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hogwarts-library", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/hogwarts-library",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
 
 const connection = mongoose.connection;
 
