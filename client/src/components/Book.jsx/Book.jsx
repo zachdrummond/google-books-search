@@ -25,7 +25,7 @@ const Book = ({
               onClick={handleButton}
               value={id}
             >
-              {window.location.pathname === "/save" ? "Save" : "Delete"}
+              {window.location.pathname === "/search" ? "Save" : "Delete"}
             </button>
           </div>
         </div>

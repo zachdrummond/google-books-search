@@ -14,13 +14,7 @@ const Saved = () => {
   const [savedBooks, setSavedBooks] = useState([]);
 
   useEffect(() => {
-    API.GetSavedBooks()
-      .then((response) => {
-        setSavedBooks(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    getBooks();
   }, []);
 
   const handleDeleteButton = (event) => {
@@ -28,8 +22,19 @@ const Saved = () => {
     API.DeleteBook(event.target.value)
       .then((response) => {
         console.log(response);
+        getBooks();
       })
       .catch((error) => console.log(error));
+  };
+
+  const getBooks = () => {
+    API.GetSavedBooks()
+      .then((response) => {
+        setSavedBooks(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
