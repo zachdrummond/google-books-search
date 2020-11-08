@@ -1,14 +1,15 @@
 const Book = ({ volumeInfo }) => {
-
+  console.log(volumeInfo);
+  const {title, infoLink, authors, imageLinks, description} = volumeInfo;
   return (
     <div className="card text-center">
       <div className="card-body">
         <div className="row">
           <div className="col-sm-10 text-left">
-            <h4>{volumeInfo.title}</h4>
+            <h4>{title ? title : "Untitled"}</h4>
           </div>
           <div className="col-sm-1">
-            <a href={volumeInfo.infoLink} target="_blank" rel="noreferrer">
+            <a href={infoLink ? infoLink : null} target="_blank" rel="noreferrer">
               <button className="btn btn-primary">
                 View
               </button>
@@ -20,15 +21,15 @@ const Book = ({ volumeInfo }) => {
         </div>
         <div className="row">
           <div className="col-sm-12 text-left">
-            <h6>by {volumeInfo.authors.join(", ")}</h6>
+            <h6>by {authors ? authors.join(", ") : "Anonymous"}</h6>
           </div>
         </div>
         <div className="row">
           <div className="col-sm-2">
-            <img src={volumeInfo.imageLinks.thumbnail} alt={volumeInfo.title}/>
+            <img src={imageLinks.thumbnail} alt={title}/>
           </div>
           <div className="col-sm-10">
-            <p>{volumeInfo.description}</p>
+            <p>{description}</p>
           </div>
         </div>
       </div>

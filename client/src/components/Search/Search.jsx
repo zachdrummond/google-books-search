@@ -46,7 +46,7 @@ const Search = () => {
         {books.length ? (
           <Card header="Results">
             {books.map((book) => (
-              <Book key={book.volumeInfo.id} volumeInfo={book.volumeInfo} />
+              <Book key={book.id} volumeInfo={book.volumeInfo} />
             ))}
           </Card>
         ) : null}
