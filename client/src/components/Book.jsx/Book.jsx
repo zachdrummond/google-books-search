@@ -14,18 +14,16 @@ const Book = ({
           <div className="col-sm-10 text-left">
             <h4>{title ? title : "Untitled"}</h4>
           </div>
-          <div className="col-sm-1">
+          <div className="col-sm-2">
             <a href={link ? link : null} target="_blank" rel="noreferrer">
               <button className="btn btn-primary">View</button>
             </a>
-          </div>
-          <div className="col-sm-1">
             <button
-              className="btn btn-primary"
+              className={`btn ${window.location.pathname === "/saved" ? "btn-danger" : "btn-success"} ml-2`}
               onClick={handleButton}
               value={id}
             >
-              {window.location.pathname === "/search" ? "Save" : "Delete"}
+              {window.location.pathname === "/saved" ? "Delete" : "Save"}
             </button>
           </div>
         </div>
