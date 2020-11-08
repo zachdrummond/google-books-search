@@ -15,13 +15,13 @@ const Search = () => {
   const [search, setSearch] = useState("");
   const [books, setBooks] = useState([]);
 
-  function getBook(event) {
+  function getBooks(event) {
     event.preventDefault();
 
     if (!search) {
       return;
     }
-    API(search)
+    API.Search(search)
       .then((response) => {
         setBooks(response.data.items);
       })
@@ -32,6 +32,11 @@ const Search = () => {
     setSearch(event.target.value);
   };
 
+  const handleSaveButton = (event) => {
+    event.preventDefault();
+    console.log("Save Button Works!");
+  }
+
   return (
     <>
       <Jumbotron />
@@ -40,13 +45,13 @@ const Search = () => {
           <Form
             search={search}
             handleInputChange={handleInputChange}
-            getBook={getBook}
+            getBooks={getBooks}
           />
         </Card>
         {books.length ? (
           <Card header="Results">
             {books.map((book) => (
-              <Book key={book.id} volumeInfo={book.volumeInfo} />
+              <Book key={book.id} volumeInfo={book.volumeInfo} handleSaveButton={handleSaveButton}/>
             ))}
           </Card>
         ) : null}

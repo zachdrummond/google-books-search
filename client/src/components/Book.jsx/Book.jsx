@@ -1,4 +1,4 @@
-const Book = ({ volumeInfo }) => {
+const Book = ({ volumeInfo, handleSaveButton }) => {
   console.log(volumeInfo);
   const {title, infoLink, authors, imageLinks, description} = volumeInfo;
   return (
@@ -16,7 +16,7 @@ const Book = ({ volumeInfo }) => {
             </a>
           </div>
           <div className="col-sm-1">
-            <button className="btn btn-primary">Save</button>
+            <button className="btn btn-primary" onClick={handleSaveButton}>Save</button>
           </div>
         </div>
         <div className="row">

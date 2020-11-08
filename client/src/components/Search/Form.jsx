@@ -1,8 +1,8 @@
-const Form = (props) => {
+const Form = ({getBooks, search, handleInputChange}) => {
 
   return (
-    <form className="form" onSubmit={props.getBook}>
-      <input type="text" value={props.search} onChange={props.handleInputChange} className="form-control mb-2" placeholder="Book" />
+    <form className="form" onSubmit={getBooks}>
+      <input type="text" value={search} onChange={handleInputChange} className="form-control mb-2" placeholder="Book" />
       <button type="submit" className="btn btn-primary mb-2">
         Search
       </button>
