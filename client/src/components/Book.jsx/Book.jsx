@@ -1,6 +1,6 @@
-const Book = ({ volumeInfo, handleSaveButton }) => {
-  console.log(volumeInfo);
-  const {title, infoLink, authors, imageLinks, description} = volumeInfo;
+const Book = ({ volumeInfo, handleSaveButton, id }) => {
+  //console.log(volumeInfo);
+  const { title, infoLink, authors, imageLinks, description } = volumeInfo;
   return (
     <div className="card text-center">
       <div className="card-body">
@@ -9,14 +9,18 @@ const Book = ({ volumeInfo, handleSaveButton }) => {
             <h4>{title ? title : "Untitled"}</h4>
           </div>
           <div className="col-sm-1">
-            <a href={infoLink ? infoLink : null} target="_blank" rel="noreferrer">
-              <button className="btn btn-primary">
-                View
-              </button>
+            <a
+              href={infoLink ? infoLink : null}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button className="btn btn-primary">View</button>
             </a>
           </div>
           <div className="col-sm-1">
-            <button className="btn btn-primary" onClick={handleSaveButton}>Save</button>
+            <button className="btn btn-primary" onClick={handleSaveButton} value={id}>
+              Save
+            </button>
           </div>
         </div>
         <div className="row">
@@ -26,7 +30,7 @@ const Book = ({ volumeInfo, handleSaveButton }) => {
         </div>
         <div className="row">
           <div className="col-sm-2">
-            <img src={imageLinks.thumbnail} alt={title}/>
+            <img src={imageLinks.thumbnail} alt={title} />
           </div>
           <div className="col-sm-10">
             <p>{description}</p>

@@ -6,8 +6,9 @@ const API = {
       `https://www.googleapis.com/books/v1/volumes?q=${userSearch}&key=${process.env.REACT_APP_API_KEY}`
     );
   },
-  SaveBook: function () {
-    return axios.post("/api/books");
+  SaveBook: function (book) {
+    console.log(book);
+    return axios.post("/api/books", book);
   },
   GetSavedBooks: function () {
     return axios.get("/api/books");
