@@ -34,6 +34,12 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+// Route - Catch All - Loads the HTML Page
+app.get("*", function (request, response) {
+  response.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`);
 });

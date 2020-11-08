@@ -43,9 +43,4 @@ router.post("/api/books", function (request, response) {
 // Route - Deletes a book from the database
 router.delete("/api/books/:id", function (request, response) {});
 
-// Route - Catch All - Loads the HTML Page
-router.get("*", function (request, response) {
-  response.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
 module.exports = router;
