@@ -1,4 +1,4 @@
-# google-book-search
+# google-books-search
 
 ## Table of Contents
 * [Description](#Description)
@@ -9,14 +9,11 @@
 * [Credits](#Credits)
 
 ## Description
-This is an app that 
+This is an app that can find and save any book's basic information via Google Books API.
 
 ## Links
-* Website: 
-* GitHub Repository: https://github.com/zachdrummond/hogwarts-library
-
-## Usage
-1. 
+* Website: https://google-books-search-zd.herokuapp.com/search
+* GitHub Repository: https://github.com/zachdrummond/google-books-search
 
 ## Design Elements
 * JavaScript
@@ -32,13 +29,11 @@ This is an app that
 
 ## App Preview
 ### *Home Page*
-![1](./public/images/home.png)
+![1](./images/home.png)
 ### *Search Bar*
-![2](./public/images/search.png)
+![2](./images/SearchResults.png)
 ### *Sort by Name*
-![3](./public/images/sortByName.png)
-### *Sort by Date*
-![4](./public/images/sortByDate.png)
+![3](./images/SavedBooks.png)
 
 ## Credits
 * https://reactjs.org/

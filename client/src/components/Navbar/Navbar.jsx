@@ -19,7 +19,7 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse text-right" id="navbarNav">
         <ul className="navbar-nav">
-          <li className="nav-item active">
+          <li className="nav-item">
             <Link className="nav-link" to="/search">
               Search
             </Link>
